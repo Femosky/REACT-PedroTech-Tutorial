@@ -8,8 +8,8 @@ export function Profile() {
     return (
         <div>
             {' '}
-            PROFILE, the user is: {username}
-            <ChangeProfile />
+            PROFILE
+            <div>ChangeProfile</div>
         </div>
     );
 }
