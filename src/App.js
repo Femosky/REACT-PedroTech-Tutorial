@@ -10,11 +10,17 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 export const AppContext = createContext();
 
 function App() {
-    const client = new QueryClient({});
+    const client = new QueryClient({
+        defaultOptions: {
+            queries: {
+                refetchOnWindowFocus: true,
+            },
+        },
+    });
 
     return (
         <div className="App">
-            <QueryClientProvider>
+            <QueryClientProvider client={client}>
                 <Router>
                     <Navbar name="femi" />
                     <Routes>
