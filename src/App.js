@@ -1,6 +1,7 @@
 import './App.css';
-import { Cat } from './components/Cat';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { CounterApp } from './components/CounterApp';
+import { useState } from 'react';
 
 function App() {
     const client = new QueryClient({
@@ -11,10 +12,23 @@ function App() {
         },
     });
 
+    const [isVisible, setIsVisible] = useState(false);
+
+    function toggle() {
+        setIsVisible((prev) => !prev);
+        // setIsVisible(!isVisible);
+    }
+
     return (
         <div className="App">
             <QueryClientProvider client={client}>
-                <Cat />
+                <button onClick={toggle}>{isVisible ? 'Hide' : 'Show'}</button>
+
+                {isVisible && (
+                    <div>
+                        <CounterApp />
+                    </div>
+                )}
             </QueryClientProvider>
         </div>
     );
