@@ -1,35 +1,16 @@
 import './App.css';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { CounterApp } from './components/CounterApp';
-import { useState } from 'react';
+import { Person } from './components/Person';
 
 function App() {
-    const client = new QueryClient({
-        defaultOptions: {
-            queries: {
-                refetchOnWindowFocus: true,
-            },
-        },
-    });
-
-    const [isVisible, setIsVisible] = useState(false);
-
-    function toggle() {
-        setIsVisible((prev) => !prev);
-        // setIsVisible(!isVisible);
-    }
-
     return (
         <div className="App">
-            <QueryClientProvider client={client}>
-                <button onClick={toggle}>{isVisible ? 'Hide' : 'Show'}</button>
-
-                {isVisible && (
-                    <div>
-                        <CounterApp />
-                    </div>
-                )}
-            </QueryClientProvider>
+            <Person
+                name="Femi"
+                email="femi@email.com"
+                age={23}
+                isMarried={false}
+                friends={['jessica', 'jake', 'jerry', 'jasmine']}
+            />
         </div>
     );
 }
