@@ -1,6 +1,6 @@
 Updates:
 
-1.  Renamed Project to REACT-PedroTech-Tutorial-js
+1.  Renamed Project to react-pedrotech-js
 
 Learning REACT for the first time.
 
